@@ -10,7 +10,6 @@ services:
       - 3306:3306
     volumes:
       - mysql_db_data_container:/var/lib/mysqlGame
-      -
   game:
     #image: 'game:latest'
     build:
