@@ -1,14 +1,5 @@
 version: '3.8'
 services:
-  game:
-    #image: 'game:latest'
-    build:
-      context: .
-      dockerfile: Dockerfile
-    #restart: on-failure
-    container_name: game
-    ports:
-      - 8282:8080
 
   mysql_db_container:
     image: mysql:latest
@@ -19,6 +10,17 @@ services:
       - 3306:3306
     volumes:
       - mysql_db_data_container:/var/lib/mysqlGame
+      -
+  game:
+    #image: 'game:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #restart: on-failure
+    container_name: game
+    ports:
+      - 8282:8080
+
 
 volumes:
   mysql_db_data_container:
