@@ -8,7 +8,7 @@ services:
     restart: on-failure
     container_name: game
     ports:
-      - '8282:8080'
+      - 8282:8080
       -
   mysql_db_container:
     image: mysql:latest
