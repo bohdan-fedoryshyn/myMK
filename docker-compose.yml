@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  analytics:
+    #image: 'game:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    container_name: game
+    ports:
+      - '8080:8080'
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - my-db:/var/lib/mysql
